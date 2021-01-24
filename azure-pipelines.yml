@@ -27,3 +27,9 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/deploy/elk/elasticsearch/Dockerfile'
         tags: |
           $(tag)
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Pipeline.Workspace)'
+        artifact: 'eShopOnContainers'
+        publishLocation: 'pipeline'
+
